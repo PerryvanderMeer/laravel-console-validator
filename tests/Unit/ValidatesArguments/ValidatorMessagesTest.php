@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Lang;
-use Illuminate\Testing\PendingCommand;
-use PerryvanderMeer\LaravelConsoleValidator\Testing\PendingCommanda;
 use PerryvanderMeer\LaravelConsoleValidator\Tests\TestCommands\ValidatesArguments\FakeCommandWithRulesAndMessages;
 use Symfony\Component\Console\Command\Command;
+
 use function Pest\Laravel\artisan;
 
 test('that the validator returns custom messages for a whole argument', function () : void
