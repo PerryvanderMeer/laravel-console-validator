@@ -1,5 +1,7 @@
 # Validate arguments for Laravel commands
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/perryvandermeer/laravel-console-validator.svg?style=flat-square)](https://packagist.org/packages/perryvandermeer/laravel-console-validator)
+[![GitHub Pest Action Status](https://img.shields.io/github/actions/workflow/status/perryvandermeer/laravel-console-validator/pest.yml?branch=main&label=tests&style=flat-square)](https://github.com/perryvandermeer/laravel-console-validator/actions?query=workflow%3Apest+branch%3Amain)
+[![GitHub Pint Status](https://img.shields.io/github/actions/workflow/status/perryvandermeer/laravel-console-validator/pint.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/perryvandermeer/laravel-console-validator/actions?query=workflow%3Apint+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/perryvandermeer/laravel-console-validator.svg?style=flat-square)](https://packagist.org/packages/perryvandermeer/laravel-console-validator)
 
 This package allows you to easily validate all entered arguments in [Laravel commands](https://laravel.com/docs/11.x/artisan).
