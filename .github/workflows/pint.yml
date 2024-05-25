@@ -1,0 +1,27 @@
+name: Run Laravel Pint
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '**.php'
+
+jobs:
+  pint:
+    runs-on: ubuntu-latest
+    name: Run Laravel Pint
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.1.3
+
+      - name: Run Laravel Pint
+        uses: aglipanci/laravel-pint-action@2.4
+        with:
+          configPath: pint.json
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5.0.1
+        with:
+          commit_message: Laravel Pint
+          skip_fetch: true
