@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Run Laravel Pint
 
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4.1.3
