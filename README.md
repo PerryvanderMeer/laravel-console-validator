@@ -91,7 +91,7 @@ protected array $rules = [
  *
  * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
  */
-protected function rules(): array
+protected function rules() : array
 {
     return [
         'title' => ['required', 'min:3', Rule::unique('posts')],
@@ -126,7 +126,7 @@ protected array $messages = [
  *
  * @return array<string, string>
  */
-protected function messages(): array
+protected function messages() : array
 {
     return [
         'title' => 'Whoo general message for title argument..!',
@@ -163,7 +163,7 @@ protected array $attributes = [
  *
  * @return array<string, string>
  */
-protected function attributes(): array
+protected function attributes() : array
 {
     return [
         'title' => 'custom title',
