@@ -5,6 +5,9 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/perryvandermeer/laravel-console-validator.svg?style=flat-square)](https://packagist.org/packages/perryvandermeer/laravel-console-validator)
 
 This package allows you to easily validate all entered arguments in [Laravel commands](https://laravel.com/docs/11.x/artisan).
+
+![laravel-console-validator](https://github.com/PerryvanderMeer/laravel-console-validator/assets/11609290/07494741-d7f1-4ae4-8f05-3fa79145de2a)
+
 Here's a brief example where we will **automatically** validate the `foo` argument against the `required` and `min:3` rules:  
 
 ```php
