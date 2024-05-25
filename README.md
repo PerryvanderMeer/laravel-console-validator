@@ -230,7 +230,7 @@ $this->boolean('foo'); // (bool) false
 ```
 
 ## Testing
-You may use the `assertExitCode()` method to assert that the command returned any validation errors:
+You may use the `assertExitCode()` method to assert that the command returned any validation error:
 
 ```php
 use Symfony\Component\Console\Command\Command;
