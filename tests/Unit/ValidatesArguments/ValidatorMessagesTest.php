@@ -3,9 +3,11 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Testing\PendingCommand;
+use PerryvanderMeer\LaravelConsoleValidator\Testing\PendingCommanda;
 use PerryvanderMeer\LaravelConsoleValidator\Tests\TestCommands\ValidatesArguments\FakeCommandWithRulesAndMessages;
 use Symfony\Component\Console\Command\Command;
-
 use function Pest\Laravel\artisan;
 
 test('that the validator returns custom messages for a whole argument', function () : void
@@ -39,6 +41,27 @@ test('that the validator returns default messages ', function () : void
     artisan(FakeCommandWithRulesAndMessages::class, ['foo' => 'foo', 'bar' => 'bar', 'baz' => 'baz'])
         ->expectsOutput('The baz field must be at least 6 characters.')
         ->expectsOutput('The baz field must end with one of the following: bop.')
+        ->assertExitCode(Command::INVALID)
+        ->assertFailed();
+});
+
+test('that the validator respects the app locale', function () : void
+{
+    config()->set('app.locale', 'nl');
+
+    Artisan::registerCommand(new FakeCommandWithRulesAndMessages());
+
+    Lang::addLines(
+        lines: [
+            'validation.min.string' => ':Attribute moet minimaal :min tekens zijn.',
+            'validation.ends_with' => ':Attribute moet met één van de volgende waarden eindigen: :values.',
+        ],
+        locale: 'nl',
+    );
+
+    artisan(FakeCommandWithRulesAndMessages::class, ['foo' => 'foo', 'bar' => 'bar', 'baz' => 'baz'])
+        ->expectsOutput('Baz moet minimaal 6 tekens zijn.')
+        ->expectsOutput('Baz moet met één van de volgende waarden eindigen: bop.')
         ->assertExitCode(Command::INVALID)
         ->assertFailed();
 });

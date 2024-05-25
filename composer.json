@@ -1,6 +1,6 @@
 {
     "name": "perryvandermeer/laravel-console-validator",
-    "description": "Validate input for Laravel commands",
+    "description": "Validate arguments for Laravel commands",
     "keywords": [
         "laravel",
         "artisan",
@@ -25,7 +25,8 @@
         "larastan/larastan": "^2.9.6",
         "pestphp/pest": "^2.34.7",
         "pestphp/pest-plugin-laravel": "^2.4",
-        "pestphp/pest-plugin-type-coverage": "^2.8.2"
+        "pestphp/pest-plugin-type-coverage": "^2.8.2",
+        "orchestra/testbench": "^9.0.0||^8.22.0"
     },
     "autoload": {
         "psr-4": {
@@ -40,6 +41,7 @@
     "scripts": {
         "pint": "./vendor/bin/pint --ansi",
         "pest": "./vendor/bin/pest --colors=always --compact",
+        "phpstan": "./vendor/bin/phpstan --ansi",
         "test-coverage": "./vendor/bin/pest --colors=always --compact --coverage --min=100",
         "type-coverage": "./vendor/bin/pest --colors=always --compact --type-coverage --min=100"
     },
