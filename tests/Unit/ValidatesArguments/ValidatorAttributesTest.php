@@ -10,7 +10,7 @@ use function Pest\Laravel\artisan;
 
 test('that the validator supports custom attributes for an argument', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithRulesAndAttributes());
+    Artisan::registerCommand(new FakeCommandWithRulesAndAttributes);
 
     artisan(FakeCommandWithRulesAndAttributes::class, ['foo' => 'foo', 'bar' => 'bar'])
         ->expectsOutput('The first field must be at least 4 characters.')

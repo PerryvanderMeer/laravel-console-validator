@@ -10,7 +10,7 @@ use function Pest\Laravel\artisan;
 
 test('that the command can cast a validated argument as string', function () : void
 {
-    Artisan::registerCommand(new FakeCommandToCastASingleValidatedArgumentAsString());
+    Artisan::registerCommand(new FakeCommandToCastASingleValidatedArgumentAsString);
 
     artisan(FakeCommandToCastASingleValidatedArgumentAsString::class, ['foo' => null])
         ->expectsOutput("Type: 'string'")
@@ -35,7 +35,7 @@ test('that the command can cast a validated argument as string', function () : v
 
 test('that the command can cast a validated argument as boolean', function () : void
 {
-    Artisan::registerCommand(new FakeCommandToCastASingleValidatedArgumentAsBool());
+    Artisan::registerCommand(new FakeCommandToCastASingleValidatedArgumentAsBool);
 
     artisan(FakeCommandToCastASingleValidatedArgumentAsBool::class, ['foo' => null])
         ->expectsOutput("Type: 'boolean'")

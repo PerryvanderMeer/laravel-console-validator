@@ -11,12 +11,12 @@ use function Pest\Laravel\artisan;
 
 test('that the validator registers messages from the messages property', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithMessagesProperty());
+    Artisan::registerCommand(new FakeCommandWithMessagesProperty);
 
     artisan(FakeCommandWithMessagesProperty::class)
         ->assertSuccessful();
 
-    expect((new FakeCommandWithMessagesProperty())->getExtractedValidationMessagesForCommand())
+    expect((new FakeCommandWithMessagesProperty)->getExtractedValidationMessagesForCommand())
         ->toBeArray()
         ->toBe([
             'foo' => 'bar',
@@ -26,12 +26,12 @@ test('that the validator registers messages from the messages property', functio
 
 test('that the validator registers messages from the messages method', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithMessagesMethod());
+    Artisan::registerCommand(new FakeCommandWithMessagesMethod);
 
     artisan(FakeCommandWithMessagesMethod::class)
         ->assertSuccessful();
 
-    expect((new FakeCommandWithMessagesMethod())->getExtractedValidationMessagesForCommand())
+    expect((new FakeCommandWithMessagesMethod)->getExtractedValidationMessagesForCommand())
         ->toBeArray()
         ->toEqual([
             'baz' => 'bax',
@@ -41,12 +41,12 @@ test('that the validator registers messages from the messages method', function 
 
 test('that the validator registers messages from the both the messages property and the messages method', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithMessagesPropertyAndMethod());
+    Artisan::registerCommand(new FakeCommandWithMessagesPropertyAndMethod);
 
     artisan(FakeCommandWithMessagesPropertyAndMethod::class)
         ->assertSuccessful();
 
-    expect((new FakeCommandWithMessagesPropertyAndMethod())->getExtractedValidationMessagesForCommand())
+    expect((new FakeCommandWithMessagesPropertyAndMethod)->getExtractedValidationMessagesForCommand())
         ->toBeArray()
         ->toEqual([
             'foo' => 'bar',

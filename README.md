@@ -230,7 +230,16 @@ $this->boolean('foo'); // (bool) false
 ```
 
 ## Testing
-You may use the `assertExitCode()` method to assert that the command returned any validation error:
+When using `laravel/framework` above version `11.9.0`, you may use the custom `assertFailedWithValidationError()` method to assert that the command returned any validation error:
+
+```php
+use Symfony\Component\Console\Command\Command;
+
+$this->artisan('foo')
+    ->assertFailedWithValidationError();
+```
+
+When using a lower version of `laravel/framework`, you may use the `assertExitCode()` method to assert that the command returned any validation error:
 
 ```php
 use Symfony\Component\Console\Command\Command;

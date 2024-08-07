@@ -35,7 +35,7 @@ final class FakeCommandToCastASingleValidatedArgumentAsBool extends Command
     {
         if ($this->bool('foo') !== $this->boolean('foo'))
         {
-            throw new LogicException();
+            throw new LogicException;
         }
 
         $type = gettype($this->bool('foo'));
