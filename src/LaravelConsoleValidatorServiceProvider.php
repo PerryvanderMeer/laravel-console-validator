@@ -19,7 +19,7 @@ final class LaravelConsoleValidatorServiceProvider extends ServiceProvider
         // from laravel/framework version 11.9.0...
         if (method_exists(PendingCommand::class, 'mixin'))
         {
-            PendingCommand::mixin(new PendingCommandMixin());
+            PendingCommand::mixin(new PendingCommandMixin);
         }
     }
 }
