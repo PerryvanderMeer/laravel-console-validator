@@ -11,12 +11,12 @@ use function Pest\Laravel\artisan;
 
 test('that the validator registers attributes from the attributes property', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithAttributesProperty());
+    Artisan::registerCommand(new FakeCommandWithAttributesProperty);
 
     artisan(FakeCommandWithAttributesProperty::class)
         ->assertSuccessful();
 
-    expect((new FakeCommandWithAttributesProperty())->getExtractedValidationAttributesForCommand())
+    expect((new FakeCommandWithAttributesProperty)->getExtractedValidationAttributesForCommand())
         ->toBeArray()
         ->toBe([
             'foo' => 'bar',
@@ -26,12 +26,12 @@ test('that the validator registers attributes from the attributes property', fun
 
 test('that the validator registers attributes from the attributes method', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithAttributesMethod());
+    Artisan::registerCommand(new FakeCommandWithAttributesMethod);
 
     artisan(FakeCommandWithAttributesMethod::class)
         ->assertSuccessful();
 
-    expect((new FakeCommandWithAttributesMethod())->getExtractedValidationAttributesForCommand())
+    expect((new FakeCommandWithAttributesMethod)->getExtractedValidationAttributesForCommand())
         ->toBeArray()
         ->toEqual([
             'baz' => 'bax',
@@ -41,12 +41,12 @@ test('that the validator registers attributes from the attributes method', funct
 
 test('that the validator registers attributes from the both the attributes property and the attributes method', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithAttributesPropertyAndMethod());
+    Artisan::registerCommand(new FakeCommandWithAttributesPropertyAndMethod);
 
     artisan(FakeCommandWithAttributesPropertyAndMethod::class)
         ->assertSuccessful();
 
-    expect((new FakeCommandWithAttributesPropertyAndMethod())->getExtractedValidationAttributesForCommand())
+    expect((new FakeCommandWithAttributesPropertyAndMethod)->getExtractedValidationAttributesForCommand())
         ->toBeArray()
         ->toEqual([
             'foo' => 'bar',

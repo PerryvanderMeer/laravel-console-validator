@@ -10,7 +10,7 @@ use function Pest\Laravel\artisan;
 
 test('that a normal command is working', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithoutValidator());
+    Artisan::registerCommand(new FakeCommandWithoutValidator);
 
     artisan(FakeCommandWithoutValidator::class)
         ->assertSuccessful();
@@ -18,7 +18,7 @@ test('that a normal command is working', function () : void
 
 test('that a command with the validator is working', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithValidator());
+    Artisan::registerCommand(new FakeCommandWithValidator);
 
     artisan(FakeCommandWithValidator::class)
         ->assertSuccessful();

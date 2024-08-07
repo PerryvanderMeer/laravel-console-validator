@@ -13,7 +13,7 @@ test('that the handle method will not be called when the validator fails', funct
 {
     Session::shouldReceive('put')->never();
 
-    Artisan::registerCommand(new FakeCommandToTestHandleMethod());
+    Artisan::registerCommand(new FakeCommandToTestHandleMethod);
 
     artisan(FakeCommandToTestHandleMethod::class, ['foo' => 'foo'])
         ->assertExitCode(Command::INVALID)
@@ -24,7 +24,7 @@ test('that the handle method will be called when the validator passes', function
 {
     Session::shouldReceive('put')->once();
 
-    Artisan::registerCommand(new FakeCommandToTestHandleMethod());
+    Artisan::registerCommand(new FakeCommandToTestHandleMethod);
 
     artisan(FakeCommandToTestHandleMethod::class, ['foo' => 'foo-bar'])
         ->assertSuccessful();
