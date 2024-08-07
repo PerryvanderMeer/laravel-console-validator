@@ -51,6 +51,13 @@
             "pestphp/pest-plugin": true
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PerryvanderMeer\\LaravelConsoleValidator\\LaravelConsoleValidatorServiceProvider"
+            ]
+        }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
