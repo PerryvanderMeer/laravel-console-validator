@@ -12,7 +12,7 @@ use function Pest\Laravel\artisan;
 
 test('that the validator validates a single argument', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithRule());
+    Artisan::registerCommand(new FakeCommandWithRule);
 
     artisan(FakeCommandWithRule::class, ['foo' => 'foo'])
         ->expectsOutput('The foo field must be at least 4 characters.')
@@ -34,7 +34,7 @@ test('that the validator validates a single argument', function () : void
 
 test('that the validator validates multiple arguments', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithRules());
+    Artisan::registerCommand(new FakeCommandWithRules);
 
     artisan(FakeCommandWithRules::class, ['foo' => 'foo', 'bar' => 'bar'])
         ->expectsOutput('The foo field must be at least 4 characters.')
@@ -62,7 +62,7 @@ test('that the validator validates multiple arguments', function () : void
 
 test('that the validator performs the argument preparation before validating the arguments', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithRulesAndArgumentPreparation());
+    Artisan::registerCommand(new FakeCommandWithRulesAndArgumentPreparation);
 
     artisan(FakeCommandWithRulesAndArgumentPreparation::class, ['foo' => 'foo', 'bar' => 'bar'])
         ->expectsOutput('The foo field must be at least 7 characters.')

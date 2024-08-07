@@ -11,7 +11,7 @@ use function Pest\Laravel\artisan;
 
 test('that the validator returns custom messages for a whole argument', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithRulesAndMessages());
+    Artisan::registerCommand(new FakeCommandWithRulesAndMessages);
 
     artisan(FakeCommandWithRulesAndMessages::class, ['foo' => 'foo', 'bar' => 'bar', 'baz' => 'baz'])
         ->expectsOutput('Whoo general message for foo argument..!')
@@ -23,7 +23,7 @@ test('that the validator returns custom messages for a whole argument', function
 
 test('that the validator returns custom messages for a specific rule', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithRulesAndMessages());
+    Artisan::registerCommand(new FakeCommandWithRulesAndMessages);
 
     artisan(FakeCommandWithRulesAndMessages::class, ['foo' => 'foo', 'bar' => 'bar', 'baz' => 'baz'])
         ->expectsOutput('Hmm the bar argument is very short..!')
@@ -35,7 +35,7 @@ test('that the validator returns custom messages for a specific rule', function 
 
 test('that the validator returns default messages ', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithRulesAndMessages());
+    Artisan::registerCommand(new FakeCommandWithRulesAndMessages);
 
     artisan(FakeCommandWithRulesAndMessages::class, ['foo' => 'foo', 'bar' => 'bar', 'baz' => 'baz'])
         ->expectsOutput('The baz field must be at least 6 characters.')
@@ -48,7 +48,7 @@ test('that the validator respects the app locale', function () : void
 {
     config()->set('app.locale', 'nl');
 
-    Artisan::registerCommand(new FakeCommandWithRulesAndMessages());
+    Artisan::registerCommand(new FakeCommandWithRulesAndMessages);
 
     Lang::addLines(
         lines: [

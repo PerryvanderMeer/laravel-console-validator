@@ -12,12 +12,12 @@ use function Pest\Laravel\artisan;
 
 test('that the validator registers rules from the rules property', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithRulesProperty());
+    Artisan::registerCommand(new FakeCommandWithRulesProperty);
 
     artisan(FakeCommandWithRulesProperty::class)
         ->assertSuccessful();
 
-    expect((new FakeCommandWithRulesProperty())->getExtractedValidationRulesForCommand())
+    expect((new FakeCommandWithRulesProperty)->getExtractedValidationRulesForCommand())
         ->toBeArray()
         ->toBe([
             'foo' => ['bar'],
@@ -28,12 +28,12 @@ test('that the validator registers rules from the rules property', function () :
 
 test('that the validator registers rules from the rules method', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithRulesMethod());
+    Artisan::registerCommand(new FakeCommandWithRulesMethod);
 
     artisan(FakeCommandWithRulesMethod::class)
         ->assertSuccessful();
 
-    expect((new FakeCommandWithRulesMethod())->getExtractedValidationRulesForCommand())
+    expect((new FakeCommandWithRulesMethod)->getExtractedValidationRulesForCommand())
         ->toBeArray()
         ->toEqual([
             'foo' => [Rule::file()],
@@ -44,12 +44,12 @@ test('that the validator registers rules from the rules method', function () : v
 
 test('that the validator registers rules from the both the rules property and the rules method', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithRulesPropertyAndMethod());
+    Artisan::registerCommand(new FakeCommandWithRulesPropertyAndMethod);
 
     artisan(FakeCommandWithRulesPropertyAndMethod::class)
         ->assertSuccessful();
 
-    expect((new FakeCommandWithRulesPropertyAndMethod())->getExtractedValidationRulesForCommand())
+    expect((new FakeCommandWithRulesPropertyAndMethod)->getExtractedValidationRulesForCommand())
         ->toBeArray()
         ->toEqual([
             'foo' => ['bar', Rule::file()],

@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace PerryvanderMeer\LaravelConsoleValidator;
 
 use Illuminate\Support\ServiceProvider;
@@ -16,6 +15,6 @@ final class LaravelConsoleValidatorServiceProvider extends ServiceProvider
      */
     public function boot() : void
     {
-        PendingCommand::mixin(new PendingCommandMixin());
+        PendingCommand::mixin(new PendingCommandMixin);
     }
 }

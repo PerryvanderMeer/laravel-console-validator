@@ -10,7 +10,7 @@ use function Pest\Laravel\artisan;
 
 test('that the validator prepares the argument for validation', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithArgumentPreparation());
+    Artisan::registerCommand(new FakeCommandWithArgumentPreparation);
 
     artisan(FakeCommandWithArgumentPreparation::class, ['foo' => 'foo'])
         ->expectsOutput('foo-bar')
@@ -21,7 +21,7 @@ test('that the validator prepares the argument for validation', function () : vo
 
 test('that the validator prepares the arguments for validation', function () : void
 {
-    Artisan::registerCommand(new FakeCommandWithArgumentsPreparation());
+    Artisan::registerCommand(new FakeCommandWithArgumentsPreparation);
 
     artisan(FakeCommandWithArgumentsPreparation::class, ['foo' => 'foo', 'bar' => 'bar'])
         ->expectsOutput('foo-bar')

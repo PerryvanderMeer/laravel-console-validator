@@ -9,7 +9,7 @@ use PerryvanderMeer\LaravelConsoleValidator\LaravelConsoleValidatorServiceProvid
 
 class TestCase extends Orchestra
 {
-    protected function getPackageProviders($app): array
+    protected function getPackageProviders($app) : array
     {
         return [
             LaravelConsoleValidatorServiceProvider::class,
