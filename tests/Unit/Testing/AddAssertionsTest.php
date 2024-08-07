@@ -15,4 +15,7 @@ test('that the assertFailedWithValidationError() assertion works', function () :
 
     artisan(FakeCommandWithRule::class, ['foo' => 'foo'])
         ->assertFailedWithValidationError();
-});
+})->skip(
+    fn () : bool => version_compare(app()->version(), '11.9.0', '<'),
+    'Mixin with PendingCommand is only available from 11.9.0',
+);

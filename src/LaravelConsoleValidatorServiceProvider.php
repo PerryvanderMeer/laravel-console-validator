@@ -16,6 +16,11 @@ final class LaravelConsoleValidatorServiceProvider extends ServiceProvider
      */
     public function boot() : void
     {
-        PendingCommand::mixin(new PendingCommandMixin());
+        // Mixin with PendingCommand is only available
+        // from laravel/framework version 11.9.0...
+        if (method_exists(PendingCommand::class, 'mixin'))
+        {
+            PendingCommand::mixin(new PendingCommandMixin());
+        }
     }
 }
