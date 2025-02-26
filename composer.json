@@ -22,7 +22,7 @@
     },
     "require-dev": {
         "laravel/pint": "^1.16",
-        "larastan/larastan": "^2.9.6",
+        "larastan/larastan": "^2.9.6||^3.0.0",
         "pestphp/pest": "^2.34.7||^3.0.0",
         "pestphp/pest-plugin-laravel": "^2.4||^3.0.0",
         "pestphp/pest-plugin-type-coverage": "^2.8.2||^3.0.0",
